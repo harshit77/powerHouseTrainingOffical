@@ -589,6 +589,7 @@ request('/.netlify/functions/index',query).then(async function (results) {
         var user = results.data;
         await fetch('http://localhost:9000/.netlify/functions/sendemail', {
             method: 'POST',
+            credentials: 'include',
             headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
