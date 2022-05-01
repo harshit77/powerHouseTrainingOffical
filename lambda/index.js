@@ -314,14 +314,22 @@ const resolvers={
                 packages.startDate=date.getDate()+ '-'+ (date.getMonth() + 1) + '-'+ date.getFullYear();
                 packages.endDate=endDates.getDate()+ '-'+ (endDates.getMonth() + 1) + '-'+ endDates.getFullYear();
                 memberData.package=packages;
-                await fetch('/.netlify/functions/sendemail', {
+               setTimeout(async()=>{
+                   console.log("OKokOAKo");
+                   const messageContent= { 
+                    "number":"9415734822",
+                    "message":"Hey mom"
+                    }
+                 //  await fetch()
+                await fetch('https://elaborate-platypus-832699.netlify.app:3050/sendmessage', {
                     method: 'POST',
                     headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({receipent,loggedInUser,createdData:memberData,typeofOperation:"CREATED",category:"Member"})
+                    body: JSON.stringify(messageContent)
       });
+               },1000)
                 return packages;
 
             }
