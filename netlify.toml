@@ -2,3 +2,11 @@
   command = "npm run build && npm run build:lambda" # the command you run to build this file
   functions = "built-lambda" # netlify-lambda builds to this folder AND Netlify reads functions from here
   publish = "public" # create-react-app builds to this folder, Netlify should serve all these files statically
+
+
+[dev]
+  command = "yarn start" # Command to start your dev server
+  targetPort = 3000 # The port for your application server, framework or site generator
+  port = 9000 # The port that the netlify dev will be accessible on
+  publish = "dist" # The path to your static content folder
+  jwtSecret = "secret" # The secret used to verify tokens for JWT based redirects
